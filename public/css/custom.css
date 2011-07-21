@@ -1,0 +1,28 @@
+body {
+  margin: 10px 10px;
+}
+
+.collapse {
+margin: 0;
+padding: 0;
+/*width: 500px;*/
+}
+ 
+.heading {
+  margin: 1px;
+  /*color: #fff;*/
+  padding: 3px 10px;
+  cursor: pointer;
+  position: relative;
+  background-color:#D1DFFF;
+}
+.content {
+  padding: 5px 10px;
+  background-color:#fafafa;
+}
+
+.content xmp {
+  margin: -10px -60px;
+  font-size: medium;
+  
+}

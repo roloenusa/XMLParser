@@ -1,0 +1,40 @@
+- if defined?(@responseTime)
+  %div
+    %table
+      %tr
+        %th Cycle Number
+        %th Time executed 
+      - i = 0; total = 0 
+      - @responseTime.each do |value|
+        %tr
+          %td="#{i = i+1}: "
+          %td="#{value}"
+          - total = total + value
+      %tr
+        %td
+        %td Total: #{total}
+      %tr
+        %td
+        %td Average: #{total/@responseTime.count}
+          
+%div
+  %form(action='/stress' method='POST')
+    %b Endpoint:
+    %br
+    %input{ :type=>"text", :name => :endpoint, :size => "62", :value => @endpoint}
+    %br
+    %b Number of Cycles:
+    %br
+    %input{ :type=>"text", :name => :cycles, :size => "10", :value => @cycles}
+    %br
+    %b XML Request:
+    %br
+    %textarea{ :name => :xml, :rows => "25", :cols => "75"}= @xmlrequest
+    %br
+    %input(type='submit')
+    
+- if defined? @error
+  %div.collapse
+    %p( class="heading")Request Xml
+    %div.content
+      %xmp= @error

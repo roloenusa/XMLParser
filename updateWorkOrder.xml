@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<workflowRequest xmlns="http://www.telenav.com/tntworkflow/schemas">
+
+  <targetName xmlns="">updateWorkOrders</targetName>
+  <targetEndpointURL xmlns="">
+    <host xmlns="">192.168.87.227</host>
+    <port xmlns="">80</port>
+  </targetEndpointURL>
+  <parameters xmlns="">
+    <parameter xmlns="">
+      <name xmlns="">SalesForceId</name>
+      <value xmlns="">a04C000000HDEoAIAX</value>
+    </parameter>
+    <parameter xmlns="">
+      <name xmlns="">JobStatus</name>
+      <value xmlns="">In Progress</value>
+    </parameter>
+    <parameter xmlns="">
+      <name xmlns="">FreeFormText</name>
+      <value xmlns="">Items Delivered</value>
+    </parameter>
+    <parameter xmlns="">
+      <name xmlns="">SalesForceId</name>
+      <value xmlns="">a04C000000HDEoAIAX</value>
+    </parameter>
+    <parameter xmlns="">
+      <name xmlns="">JobStatus</name>
+      <value xmlns="">In Progress</value>
+    </parameter>
+    <parameter xmlns="">
+      <name xmlns="">FreeFormText</name>
+      <value xmlns="">In transit</value>
+    </parameter>
+  </parameters>
+</workflowRequest>

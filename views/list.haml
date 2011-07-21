@@ -1,0 +1,8 @@
+%div
+  %h3 Files Available
+
+%div.collapse
+  - @files.each do |f|
+    %p( class="heading")= f
+    %div.content
+      %xmp= IO.read(Dir.pwd+'/public/xml/'+f)

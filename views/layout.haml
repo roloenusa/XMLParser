@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Force.com request console
+    %link(rel="stylesheet" href="css/blueprint/screen.css")
+    %link(rel="stylesheet" href="css/custom.css")
+    %script( type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" )
+    %script(type="text/javascript") 
+      jQuery(document).ready(function() { jQuery(".content").hide(); jQuery(".heading").click(function() { jQuery(this).next(".content").slideToggle(0);}); });
+  %body
+    %a{:href => "/"}Home 
+    %a{:href => "/list"} Xml Files
+    = yield
