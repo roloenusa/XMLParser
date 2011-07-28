@@ -1,21 +1,11 @@
 %div
-  - if defined?(@pair)
-    %table
-      %tr
-        %th key
-        %th value 
-      - @pair.each do |key,value|
-        %tr
-          %td="#{key}: "
-          %td="#{value}"
-          
-%div
   %form(action='/' method='POST')
     %label Method:
     %br
     %select{ :name => @method }
       %option{ :value => "GET" } GET
       %option{ :value => "POST" } POST
+    %br
     %label Endpoint:
     %br
     %input{ :type=>"text", :name => :endpoint, :size => "62", :value => @endpoint}

@@ -16,30 +16,41 @@ post '/' do
   @endpoint = params[:endpoint]
   @method = params[:method]
   url = URI.parse(@endpoint)
+  query = url.path + ("?#{url.query}" unless url.query.nil?)
   
   if  @method == "POST"
-    request = Net::HTTP::Post.new(url.path)
+    request = Net::HTTP::Post.new(query)
     request.body = params[:xml].strip
   else
-    puts "GET Method"
-    request = Net::HTTP::Get.new(url.path)
+    request = Net::HTTP::Get.new(query)
   end
   
   response = Net::HTTP.start(url.host, url.port) {|http| http.request(request)}
   xml = response.body
   
   doc, posts = REXML::Document.new(xml), []
-  
-  @pair = {}
-  @pair = FindKeyValuePair doc
-  
+    
   @xmlrequest = params[:xml].strip
   @xmlresponse = doc
   
   puts XmlExplorerOut doc
+  puts "URL= #{url}"
+  puts "Scheme=   #{url.scheme}"
+  puts "Userinfo= #{url.userinfo}"
+  puts "Host=     #{url.host}"
+  puts "Port=     #{url.port}"
+  puts "Registry= #{url.registry}"
+  puts "Path=     #{url.path}"
+  puts "Opaque=   #{url.opaque}"
+  puts "Query=    #{url.query}"
+  puts "Fragment= #{url.fragment}"
   
+  # Print the entire thing
+  # puts Net::HTTP.get_print url
+ 
   haml :index
 end
+
 
 get '/stress' do 
 
